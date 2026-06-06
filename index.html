@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>숭실대학교 개교 130주년</title>
+  <meta name="description" content="숭실대학교 개교 130주년 기념 홈페이지">
+  <style>
+    :root {
+      --navy: #003876;
+      --blue: #0067b1;
+      --gold: #c9a24a;
+      --ink: #172033;
+      --muted: #687386;
+      --line: #dde4ee;
+      --paper: #f6f8fb;
+      --white: #ffffff;
+      --green: #13795b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -80px;
+      z-index: 100;
+      padding: 10px 14px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 6px;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 68px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--navy);
+      border-radius: 50%;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #23324a;
+      font-size: 15px;
+      font-weight: 650;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 6px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--navy);
+      background: #eef5fb;
+      outline: none;
+    }
+
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 6px;
+      color: var(--white);
+      background: var(--navy);
+      font-weight: 750;
+    }
+
+    .cta-link:hover,
+    .cta-link:focus-visible {
+      background: #002b5b;
+      outline: none;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 68px);
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(0, 34, 74, 0.9), rgba(0, 56, 118, 0.62), rgba(0, 0, 0, 0.2)),
+        url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=80") center/cover;
+    }
+
+    .hero-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 72px 0 96px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 12px;
+      color: #fff5d9;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 22px 0 18px;
+      font-size: clamp(42px, 7vw, 84px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin: 0 0 34px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(18px, 2.1vw, 24px);
+      word-break: keep-all;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .button.primary {
+      color: #0b2142;
+      background: #f3ca5f;
+    }
+
+    .button.secondary {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.48);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      max-width: 860px;
+      background: rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
+    .metric {
+      min-height: 116px;
+      padding: 18px;
+      background: rgba(0, 20, 46, 0.42);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.1;
+      color: #ffe19b;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 14px;
+    }
+
+    section {
+      padding: 86px 0;
+    }
+
+    .band {
+      background: var(--paper);
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.6fr);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      margin: 0 0 8px;
+      color: var(--blue);
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.16;
+      letter-spacing: 0;
+      color: var(--navy);
+      word-break: keep-all;
+    }
+
+    .section-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      word-break: keep-all;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .story-photo {
+      min-height: 430px;
+      background:
+        linear-gradient(0deg, rgba(0, 36, 80, 0.48), rgba(0, 36, 80, 0.08)),
+        url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=80") center/cover;
+    }
+
+    .story-panel {
+      display: grid;
+      align-content: center;
+      gap: 18px;
+      padding: 46px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .story-panel p {
+      margin: 0;
+      color: #3c4758;
+      font-size: 18px;
+      word-break: keep-all;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .timeline-item {
+      min-height: 180px;
+      padding: 22px;
+      border-top: 4px solid var(--gold);
+      background: var(--white);
+      box-shadow: 0 10px 28px rgba(25, 47, 78, 0.08);
+    }
+
+    .timeline-item time {
+      display: block;
+      color: var(--navy);
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .timeline-item strong {
+      display: block;
+      margin-top: 14px;
+      font-size: 18px;
+      color: var(--ink);
+    }
+
+    .timeline-item p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .quick-grid,
+    .program-grid,
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .quick-card,
+    .program-card,
+    .news-card {
+      min-height: 210px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .quick-card:hover,
+    .program-card:hover,
+    .news-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(20, 45, 80, 0.12);
+    }
+
+    .card-index {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      color: var(--navy);
+      background: #e8f2fb;
+      font-weight: 900;
+    }
+
+    .quick-card h3,
+    .program-card h3,
+    .news-card h3 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 22px;
+      line-height: 1.25;
+      word-break: keep-all;
+    }
+
+    .quick-card p,
+    .program-card p,
+    .news-card p {
+      margin: 0;
+      color: var(--muted);
+      word-break: keep-all;
+    }
+
+    .program-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .status {
+      width: fit-content;
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: #0b5e45;
+      background: #dff4ec;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .participation {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .form-panel {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .form-panel h3 {
+      margin: 0 0 18px;
+      color: var(--navy);
+      font-size: 24px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+
+    .field label {
+      color: #2d3b52;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 12px 13px;
+      color: var(--ink);
+      background: var(--white);
+    }
+
+    .field textarea {
+      min-height: 128px;
+      resize: vertical;
+    }
+
+    .memory-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .memory {
+      padding: 22px;
+      border-left: 4px solid var(--gold);
+      background: var(--white);
+      box-shadow: 0 8px 22px rgba(24, 42, 68, 0.07);
+    }
+
+    .memory-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .memory p {
+      margin: 0;
+      font-size: 18px;
+      color: #334155;
+      word-break: keep-all;
+    }
+
+    .memory span,
+    .memory-meta {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .form-note,
+    .message-status,
+    .empty-message {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .message-status {
+      min-height: 22px;
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .form-actions,
+    .admin-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .button.danger {
+      min-height: 38px;
+      padding: 0 12px;
+      color: #991b1b;
+      border-color: #fecaca;
+      background: #fff1f2;
+    }
+
+    .button.text {
+      min-height: 38px;
+      padding: 0 12px;
+      color: var(--navy);
+      border-color: var(--line);
+      background: var(--white);
+    }
+
+    .admin-panel {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px dashed #b8c4d4;
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+
+    .admin-panel[hidden] {
+      display: none;
+    }
+
+    .admin-panel h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .admin-panel p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .fund {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .fund-visual {
+      padding: 34px;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(0, 56, 118, 0.95), rgba(19, 121, 91, 0.88)),
+        url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1400&q=80") center/cover;
+    }
+
+    .fund-visual strong {
+      display: block;
+      margin-bottom: 18px;
+      font-size: clamp(30px, 4vw, 54px);
+      line-height: 1.05;
+    }
+
+    .progress {
+      height: 16px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    .progress span {
+      display: block;
+      width: 68%;
+      height: 100%;
+      background: #f3ca5f;
+    }
+
+    .fund-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .fund-list li {
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      font-weight: 750;
+    }
+
+    .newsletter {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      padding: 34px;
+      color: var(--white);
+      background: var(--navy);
+      border-radius: 8px;
+    }
+
+    .newsletter h2 {
+      color: var(--white);
+      font-size: clamp(26px, 3vw, 36px);
+    }
+
+    .newsletter p {
+      margin: 8px 0 0;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+      min-width: min(100%, 430px);
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      border-radius: 6px;
+      padding: 0 14px;
+    }
+
+    .site-footer {
+      padding: 42px 0;
+      color: rgba(255, 255, 255, 0.82);
+      background: #111827;
+    }
+
+    .footer-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-inner strong {
+      display: block;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 960px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+        gap: 10px;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 6px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-metrics,
+      .timeline,
+      .quick-grid,
+      .program-grid,
+      .news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-head,
+      .story-grid,
+      .participation,
+      .fund {
+        grid-template-columns: 1fr;
+      }
+
+      .story-photo {
+        min-height: 300px;
+      }
+
+      .newsletter {
+        align-items: stretch;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .brand {
+        font-size: 15px;
+      }
+
+      .nav-links {
+        font-size: 14px;
+      }
+
+      .hero-inner {
+        padding: 52px 0 70px;
+      }
+
+      .hero-actions,
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .button,
+      .newsletter-form input {
+        width: 100%;
+        min-height: 48px;
+      }
+
+      .hero-metrics,
+      .timeline,
+      .quick-grid,
+      .program-grid,
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 62px 0;
+      }
+
+      .story-panel,
+      .form-panel,
+      .fund-visual,
+      .newsletter {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="주요 메뉴">
+      <a class="brand" href="#home" aria-label="숭실대학교 개교 130주년 홈">
+        <span class="brand-mark">130</span>
+        <span>숭실대학교 개교 130주년</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">소개</a>
+        <a href="#history">역사</a>
+        <a href="#programs">기념사업</a>
+        <a href="#participate">참여</a>
+        <a href="#news">소식</a>
+        <a href="#fund">발전기금</a>
+      </div>
+      <a class="cta-link" href="#participate">함께하기</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-label="개교 130주년 메인">
+      <div class="hero-inner">
+        <span class="eyebrow">1897-2027 · 개교 130주년</span>
+        <h1>진리와 봉사의 130년, 다음 세대를 향한 숭실</h1>
+        <p class="hero-copy">한국 근대 고등교육의 시작을 품은 숭실의 역사를 돌아보고, 구성원과 동문, 시민이 함께 만드는 기념사업과 미래 비전을 한곳에서 만납니다.</p>
+        <div class="hero-actions" aria-label="바로가기">
+          <a class="button primary" href="#history">130년 역사 보기</a>
+          <a class="button secondary" href="#fund">발전기금 참여</a>
+        </div>
+        <div class="hero-metrics" aria-label="개교 130주년 주요 지표">
+          <div class="metric">
+            <strong>130</strong>
+            <span>개교 기념 연수</span>
+          </div>
+          <div class="metric">
+            <strong id="d-day">D-000</strong>
+            <span>2027년 10월 10일까지</span>
+          </div>
+          <div class="metric">
+            <strong>6</strong>
+            <span>기념사업 분야</span>
+          </div>
+          <div class="metric">
+            <strong>5,000+</strong>
+            <span>축하 메시지 목표</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Anniversary Vision</p>
+            <h2>숭실의 시작과 미래를 연결하는 온라인 허브</h2>
+          </div>
+          <p class="section-copy">PRD의 핵심 목표에 맞춰 역사 아카이브, 기념사업 안내, 참여형 콘텐츠, 발전기금 캠페인을 한 흐름으로 구성했습니다.</p>
+        </div>
+        <div class="story-grid">
+          <div class="story-photo" role="img" aria-label="대학 캠퍼스 전경 이미지"></div>
+          <div class="story-panel">
+            <p>숭실대학교 130주년 홈페이지는 학교의 발자취를 대중에게 쉽게 전달하고, 기념행사 참여와 기부 행동까지 자연스럽게 이어지도록 설계된 대표 채널입니다.</p>
+            <p>시대별 이야기, 주요 인물, 사진과 영상 아카이브, 뉴스와 행사 신청 기능을 통합해 구성원 모두가 사용할 수 있는 기념 플랫폼을 지향합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="history">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">130 Years Timeline</p>
+            <h2>시대별로 만나는 숭실의 역사</h2>
+          </div>
+          <p class="section-copy">인터랙티브 타임라인으로 확장할 수 있도록 5개 시기 구조를 잡았습니다. 사진, 영상, 주요 인물 콘텐츠를 붙이기 쉬운 형태입니다.</p>
+        </div>
+        <div class="timeline" aria-label="숭실대학교 역사 타임라인">
+          <article class="timeline-item">
+            <time>1897</time>
+            <strong>평양 숭실의 시작</strong>
+            <p>근대 교육의 정신을 품고 숭실의 첫 장이 열렸습니다.</p>
+          </article>
+          <article class="timeline-item">
+            <time>1954</time>
+            <strong>서울 재건과 도약</strong>
+            <p>새로운 캠퍼스와 함께 교육과 연구의 기반을 다시 세웠습니다.</p>
+          </article>
+          <article class="timeline-item">
+            <time>1971</time>
+            <strong>종합대학 성장</strong>
+            <p>학문 영역을 넓히며 사회가 필요로 하는 인재를 길렀습니다.</p>
+          </article>
+          <article class="timeline-item">
+            <time>1997</time>
+            <strong>100주년의 비전</strong>
+            <p>한 세기의 성취를 바탕으로 다음 백년의 방향을 선언했습니다.</p>
+          </article>
+          <article class="timeline-item">
+            <time>2027</time>
+            <strong>130주년 미래 선언</strong>
+            <p>교육, 연구, 봉사, 글로벌 비전을 잇는 새 출발점입니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Quick Access</p>
+            <h2>방문자가 가장 많이 찾는 입구</h2>
+          </div>
+          <p class="section-copy">메인 페이지에서 역사, 사업, 행사, 기부로 바로 이동하는 PRD의 P0 요구사항을 반영했습니다.</p>
+        </div>
+        <div class="quick-grid">
+          <a class="quick-card" href="#history">
+            <span class="card-index">01</span>
+            <h3>130년 역사 아카이브</h3>
+            <p>연도별 사건, 사진, 영상, 주요 인물 자료를 한눈에 탐색합니다.</p>
+          </a>
+          <a class="quick-card" href="#programs">
+            <span class="card-index">02</span>
+            <h3>기념사업 일정</h3>
+            <p>학술, 문화예술, 글로벌, 사회공헌 등 분야별 사업을 확인합니다.</p>
+          </a>
+          <a class="quick-card" href="#participate">
+            <span class="card-index">03</span>
+            <h3>축하와 추억 남기기</h3>
+            <p>동문과 구성원이 직접 메시지와 사진으로 130주년에 참여합니다.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="programs">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Commemorative Programs</p>
+            <h2>분야별 기념사업</h2>
+          </div>
+          <p class="section-copy">PRD의 6개 사업 분야를 카드 UI로 정리했습니다. 실제 운영 시 상태, 일정, 신청 링크를 CMS로 연결할 수 있습니다.</p>
+        </div>
+        <div class="program-grid">
+          <article class="program-card">
+            <div>
+              <span class="status">준비 중</span>
+              <h3>학술·연구</h3>
+              <p>130주년 기념 국제 심포지엄, 연구 성과 전시, 미래 교육 포럼</p>
+            </div>
+          </article>
+          <article class="program-card">
+            <div>
+              <span class="status">예정</span>
+              <h3>문화·예술</h3>
+              <p>기념 공연, 전시, 구성원 참여형 문화 프로그램</p>
+            </div>
+          </article>
+          <article class="program-card">
+            <div>
+              <span class="status">준비 중</span>
+              <h3>글로벌</h3>
+              <p>해외 동문 네트워크, 글로벌 파트너십 기념 행사</p>
+            </div>
+          </article>
+          <article class="program-card">
+            <div>
+              <span class="status">모집 예정</span>
+              <h3>사회공헌</h3>
+              <p>봉사 캠페인, 지역사회 협력, 지속가능성 프로젝트</p>
+            </div>
+          </article>
+          <article class="program-card">
+            <div>
+              <span class="status">진행 예정</span>
+              <h3>캠퍼스·건립</h3>
+              <p>기념 공간 조성, 캠퍼스 투어, 역사 표식 정비</p>
+            </div>
+          </article>
+          <article class="program-card">
+            <div>
+              <span class="status">상시</span>
+              <h3>홍보·브랜드</h3>
+              <p>130주년 엠블럼, 기념 출판물, 미디어 자료 배포</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="participate">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Participation</p>
+            <h2>함께 완성하는 130주년</h2>
+          </div>
+          <p class="section-copy">축하 메시지, 행사 신청, 사진 공모, 추억 갤러리 등 참여형 콘텐츠의 첫 화면입니다.</p>
+        </div>
+        <div class="participation">
+          <form class="form-panel" id="message-form">
+            <h3>축하 메시지 남기기</h3>
+            <div class="field">
+              <label for="name">이름</label>
+              <input id="name" name="name" type="text" placeholder="홍길동" maxlength="30" required>
+            </div>
+            <div class="field">
+              <label for="group">소속</label>
+              <input id="group" name="group" type="text" placeholder="동문, 재학생, 교직원 등" maxlength="40" required>
+            </div>
+            <div class="field">
+              <label for="message">메시지</label>
+              <textarea id="message" name="message" placeholder="숭실의 130주년을 축하하는 마음을 남겨주세요." maxlength="300" required></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="button primary" type="submit">메시지 등록</button>
+              <button class="button text" id="admin-login" type="button">관리자 모드</button>
+            </div>
+            <p class="form-note">임시 시안에서는 브라우저 localStorage에만 저장됩니다.</p>
+            <p class="message-status" id="message-status" aria-live="polite"></p>
+          </form>
+          <div>
+            <div class="memory-list" id="memory-list" aria-label="축하 메시지 목록"></div>
+            <div class="admin-panel" id="admin-panel" hidden>
+              <h3>관리자 기능</h3>
+              <p>현재 브라우저에 저장된 메시지를 삭제할 수 있습니다. 실제 운영용 보안 기능은 아닙니다.</p>
+              <div class="admin-actions">
+                <button class="button danger" id="clear-messages" type="button">전체 삭제</button>
+                <button class="button text" id="admin-logout" type="button">관리자 모드 종료</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="news">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Newsroom</p>
+            <h2>최신 소식과 자료</h2>
+          </div>
+          <p class="section-copy">공지사항, 뉴스, 미디어 자료가 자동 노출되는 영역으로 확장할 수 있습니다.</p>
+        </div>
+        <div class="news-grid">
+          <article class="news-card">
+            <span class="card-index">N</span>
+            <h3>130주년 준비위원회 출범</h3>
+            <p>기념사업 추진 체계와 주요 일정이 순차적으로 공개됩니다.</p>
+          </article>
+          <article class="news-card">
+            <span class="card-index">A</span>
+            <h3>역사 자료 기증 안내</h3>
+            <p>사진, 영상, 문서 등 숭실의 발자취를 담은 자료를 접수합니다.</p>
+          </article>
+          <article class="news-card">
+            <span class="card-index">M</span>
+            <h3>기념 엠블럼 활용 가이드</h3>
+            <p>공식 홍보물과 행사 제작물에 적용할 기본 원칙을 제공합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="fund">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Development Fund</p>
+            <h2>숭실의 다음 130년을 위한 발전기금</h2>
+          </div>
+          <p class="section-copy">기부 안내, 온라인 참여 링크, 목표 달성률, 기부자 명단 공개 기능을 담을 수 있는 캠페인 영역입니다.</p>
+        </div>
+        <div class="fund">
+          <div class="fund-visual">
+            <strong>목표 대비 68%</strong>
+            <div class="progress" aria-label="발전기금 목표 달성률 68%">
+              <span></span>
+            </div>
+            <p>장학, 연구, 캠퍼스, 글로벌 교육 기반을 위한 130주년 특별 모금 캠페인</p>
+          </div>
+          <ul class="fund-list">
+            <li>장학기금: 학생의 배움과 도전을 지원합니다.</li>
+            <li>연구기금: 미래 학문과 산학협력 기반을 강화합니다.</li>
+            <li>캠퍼스기금: 안전하고 열린 교육 공간을 만듭니다.</li>
+            <li>글로벌기금: 해외 동문과 국제 교류를 확장합니다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container">
+        <div class="newsletter">
+          <div>
+            <h2>130주년 소식을 받아보세요</h2>
+            <p>행사 일정, 참여 캠페인, 기념 콘텐츠 업데이트를 이메일로 안내합니다.</p>
+          </div>
+          <form class="newsletter-form">
+            <input type="email" aria-label="이메일 주소" placeholder="email@soongsil.ac.kr">
+            <button class="button primary" type="button">구독</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>숭실대학교 개교 130주년</strong>
+        <span>본 페이지는 PRD 기반 시안용 정적 홈페이지입니다.</span>
+      </div>
+      <div>© 2026 Soongsil University 130th Anniversary</div>
+    </div>
+  </footer>
+
+  <script>
+    const dDayElement = document.getElementById("d-day");
+    const anniversary = new Date("2027-10-10T00:00:00+09:00");
+    const today = new Date();
+    const days = Math.max(0, Math.ceil((anniversary - today) / (1000 * 60 * 60 * 24)));
+    dDayElement.textContent = `D-${days.toLocaleString("ko-KR")}`;
+
+    const STORAGE_KEY = "soongsil130Messages";
+    const ADMIN_CODE = "130";
+    const defaultMessages = [
+      {
+        id: "sample-1",
+        name: "동문",
+        group: "89학번",
+        message: "숭실의 130년이 다음 세대의 배움과 봉사로 계속 이어지길 바랍니다.",
+        createdAt: "2026-06-06T00:00:00.000Z"
+      },
+      {
+        id: "sample-2",
+        name: "재학생",
+        group: "IT대학",
+        message: "캠퍼스에서 쌓은 시간들이 자랑스러운 역사로 남는다는 것이 기쁩니다.",
+        createdAt: "2026-06-06T00:00:00.000Z"
+      },
+      {
+        id: "sample-3",
+        name: "교직원",
+        group: "서울캠퍼스",
+        message: "개교 130주년을 계기로 더 넓은 세계와 연결되는 숭실을 기대합니다.",
+        createdAt: "2026-06-06T00:00:00.000Z"
+      }
+    ];
+
+    const messageForm = document.getElementById("message-form");
+    const memoryList = document.getElementById("memory-list");
+    const statusElement = document.getElementById("message-status");
+    const adminLoginButton = document.getElementById("admin-login");
+    const adminLogoutButton = document.getElementById("admin-logout");
+    const adminPanel = document.getElementById("admin-panel");
+    const clearMessagesButton = document.getElementById("clear-messages");
+    let isAdmin = false;
+
+    function readMessages() {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (!stored) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultMessages));
+        return defaultMessages;
+      }
+
+      try {
+        const parsed = JSON.parse(stored);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function writeMessages(messages) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function formatDate(value) {
+      return new Intl.DateTimeFormat("ko-KR", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).format(new Date(value));
+    }
+
+    function renderMessages() {
+      const messages = readMessages();
+      if (!messages.length) {
+        memoryList.innerHTML = '<p class="empty-message">등록된 축하 메시지가 없습니다.</p>';
+        return;
+      }
+
+      memoryList.innerHTML = messages
+        .map((item) => `
+          <article class="memory">
+            <div class="memory-header">
+              <p>${escapeHtml(item.message)}</p>
+              ${isAdmin ? `<button class="button danger" type="button" data-delete-id="${escapeHtml(item.id)}">삭제</button>` : ""}
+            </div>
+            <div class="memory-meta">
+              ${escapeHtml(item.name)} · ${escapeHtml(item.group)} · ${formatDate(item.createdAt)}
+            </div>
+          </article>
+        `)
+        .join("");
+    }
+
+    messageForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(messageForm);
+      const name = String(formData.get("name") || "").trim();
+      const group = String(formData.get("group") || "").trim();
+      const message = String(formData.get("message") || "").trim();
+
+      if (!name || !group || !message) {
+        statusElement.textContent = "이름, 소속, 메시지를 모두 입력해 주세요.";
+        return;
+      }
+
+      const messages = readMessages();
+      messages.unshift({
+        id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+        name,
+        group,
+        message,
+        createdAt: new Date().toISOString()
+      });
+      writeMessages(messages);
+      messageForm.reset();
+      statusElement.textContent = "메시지가 이 브라우저에 저장되었습니다.";
+      renderMessages();
+    });
+
+    memoryList.addEventListener("click", (event) => {
+      const deleteButton = event.target.closest("[data-delete-id]");
+      if (!deleteButton || !isAdmin) return;
+
+      const id = deleteButton.getAttribute("data-delete-id");
+      const messages = readMessages().filter((item) => item.id !== id);
+      writeMessages(messages);
+      statusElement.textContent = "선택한 메시지를 삭제했습니다.";
+      renderMessages();
+    });
+
+    adminLoginButton.addEventListener("click", () => {
+      const input = window.prompt("관리자 코드를 입력하세요. 임시 코드는 130입니다.");
+      if (input !== ADMIN_CODE) {
+        statusElement.textContent = "관리자 코드가 일치하지 않습니다.";
+        return;
+      }
+
+      isAdmin = true;
+      adminPanel.hidden = false;
+      statusElement.textContent = "관리자 모드가 켜졌습니다.";
+      renderMessages();
+    });
+
+    adminLogoutButton.addEventListener("click", () => {
+      isAdmin = false;
+      adminPanel.hidden = true;
+      statusElement.textContent = "관리자 모드를 종료했습니다.";
+      renderMessages();
+    });
+
+    clearMessagesButton.addEventListener("click", () => {
+      if (!isAdmin) return;
+      const confirmed = window.confirm("현재 브라우저에 저장된 모든 메시지를 삭제할까요?");
+      if (!confirmed) return;
+
+      writeMessages([]);
+      statusElement.textContent = "모든 메시지를 삭제했습니다.";
+      renderMessages();
+    });
+
+    renderMessages();
+  </script>
+</body>
+</html>
